@@ -65,7 +65,8 @@ public class Test {
         ls.add(es);     // 不用强转也行
         MyPrint.show(ls.get(0));    // 1 2 3
 
-        Map<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.keySet();
         ConcurrentMap<Integer, Integer> m1 = new ConcurrentHashMap<>();
         CopyOnWriteArrayList<Integer> m2 = new CopyOnWriteArrayList<>();
         return;
