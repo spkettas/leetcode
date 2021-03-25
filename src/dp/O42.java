@@ -11,9 +11,7 @@ package dp;
  */
 public class O42 {
     public int maxSubArray(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
-        }
+        if (nums.length == 0) return 0;
 
         int n = nums.length;
         int[] dp = new int[n];
