@@ -18,6 +18,8 @@ public class L322 {
     // I: 自底向上
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
+
+        // false
         Arrays.fill(dp, amount + 1);
 
         // base case

@@ -23,11 +23,12 @@ public class L518 {
         int n = coins.length;
         int[][] dp = new int[n + 1][amount + 1];
 
-        // base case
+        // false
         for (int i=0; i<=amount; i++) {
             dp[0][i] = 0;
         }
 
+        // true
         for (int i=0; i<=n; i++) {
             dp[i][0] = 1;
         }
