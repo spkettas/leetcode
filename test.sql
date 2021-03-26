@@ -1,3 +1,4 @@
+-- Table
 -- student
 drop table if exists student;
 CREATE TABLE student
@@ -32,7 +33,8 @@ CREATE TABLE teacher
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 老师下的学生(sql传递，非select字段但是可引用)
+-- SQL
+-- 查询叶平老师下的学生(sql传递，非select字段但是可引用)
 select s.sname from student s, teacher t, course cu, sc sc 
 where s.sid = sc.sid 
 and sc.cid = cu.cid
@@ -46,28 +48,45 @@ inner join course cu on sc.cid = cu.cid
 inner join teacher t on cu.tid = t.tid
 where t.tname = '叶平';
 
+
 -- 课程1比课程2成绩高的学生编号
-select a.sid from (select sid, score from sc where cid='1') a,
+select a.sid from
+(select sid, score from sc where cid='1') a,
 (select sid, score from sc where cid='2') b
 where a.score > b.score and a.sid = b.sid;
 
--- 查询平均成绩大于 60 分的同学的学号和平均成绩(having)
-select sid, avg(score) from sc group by sid having avg(score)>60;
-
 -- 查询所有同学的学号、姓名、选课数、总成绩
 select s.sid,s.sname,count(sc.cid),sum(sc.score) from student s 
-inner join sc sc on s.sid = sc.sid group by s.sid;
+inner join sc sc on s.sid = sc.sid
+group by s.sid;
 
--- 查询没有学全所有课的同学的学号、姓名(having count()<)
+-- 查询没有学全所有课的同学的学号、姓名(having count())
 select s.sid, s.sname from student s, sc sc 
 where s.sid = sc.sid group by s.sid, s.sname 
 having count(sc.cid) < (select count(cid) from sc);
 
+-- 查询没学过叶平老师课的同学学号和姓名
+select s.sid, s.sname from student s
+where s.sid not in (
+    select sc.sid from teacher t, course cu, sc sc
+    where t.tid=cu.tid and cu.cid=sc.cid and t.sname='叶平'
+);
+
+-- 查询学过 “叶平” 老师所教的所有课的同学的学号、姓名
+select sid, sname from student where sid in (
+    select sid from sc, course, teacher
+    where sc.cid = course.cid and teacher.tid = course.tid and teacher.tname = '叶平'
+    group by sid
+    having count(sc.cid) = (
+        select count(course.cid) from course, teacher where course.tid=teacher.tid and teacher.tname='叶平'
+    )
+);
 
 -- 查询至少有一门课与学号为 “1” 的同学所学相同的同学的学号和姓名(<>)
 select distinct(s.sid), s.sname from student s, sc sc 
-where s.sid = sc.sid and s.sid<>'1'
-and cid in (select cid from sc where sid='1');
+where s.sid = sc.sid and s.sid<>'1'and cid in (
+    select cid from sc where sid='1'
+);
 
 -- 删除学习 “叶平” 老师课的 SC 表记录(条件传导)
 delete from sc where cid in (
@@ -91,15 +110,40 @@ select s.sid, s.sname from student s where s.sid in (
 	group by sid having count(*) = (select count(*) from sc where sid='2')
 );
 
--- 向 SC 表中插入一些记录，这些记录要求符合以下条件：1、没有上过编号 “2” 课程的同学学号；2、插入 “2” 号课程的平均成绩
+-- 向 SC 表中插入一些记录，这些记录要求符合以下条件：2、插入 “2” 号课程的平均成绩 1、没有上过编号 “2” 课程的同学学号；
+insert into sc (
+    select sid, '2', (select avg(score) from sc where id='2') from student sid not in (
+        select sid from sc where cid='2'
+    )
+);
 
 -- 按平均成绩从高到低显示所有学生的 “语文”、”数学”、”英语” 三门的课程成绩，按如下形式显示：学生ID，语文，数学，英语，有效课程数，有效平均分
+select sc.sid,
+(select sc.score from sc t where sc.sid=t.sid where cid='1') as '语文',
+(select sc.score from sc t where sc.sid=t.sid where cid='2') as '数学',
+(select sc.score from sc t where sc.sid=t.sid where cid='3') as '英语',
+count(*) as '有效课程数',
+from sc sc
+group by sc.sid
+order by avg(sc.score)
+
+
+-- simple
+-- 查询平均成绩大于 60 分的同学的学号和平均成绩(having)
+select sid, avg(score) from sc group by sid having avg(score)>60;
 
 -- 查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分
 select cid as 课程id, max(score) as 最高分, min(score) 最低分 from sc group by cid;
+
 -- 查询姓 “李” 的老师的个数
 select count(tid) from teacher where tname like '叶%';
 
+-- 查询学过 “1” 并且也学过编号 “2” 课程的同学的学号、姓名
+select sid, sname from student where sid in
+(
+    select sid from sc where cid='1'
+    and (select sid from sc where cid='2')
+)
 
 -------------------------------------------------------------------------------------
 truncate student;
@@ -151,3 +195,5 @@ union all select '6', '2', 68
 union all select '6', '4', 71;
 
 
+-- 经典四表
+https://www.dazhuanlan.com/2019/11/23/5dd931756d5f0/
