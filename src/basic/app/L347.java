@@ -1,4 +1,4 @@
-package basic.alg;
+package basic.app;
 
 import util.MyPrint;
 

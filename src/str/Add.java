@@ -1,4 +1,4 @@
-package basic.calc;
+package str;
 
 /**
  * 大数加法
@@ -55,7 +55,7 @@ public class Add {
 
     public static void main(String[] args) {
         Add o = new Add();
-        var res = o.solve("10", "192");
+        var res = o.solve("110", "192");
         System.out.println(res);
     }
 }

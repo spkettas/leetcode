@@ -1,7 +1,4 @@
-package basic.alg;
-
-import link.L2;
-import util.MyPrint;
+package basic.app;
 
 /**
  * 数组中第k个最大数
