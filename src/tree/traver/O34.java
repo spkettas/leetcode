@@ -1,4 +1,4 @@
-package tree.traverse;
+package tree.traver;
 
 import util.MyPrint;
 import util.TreeNode;

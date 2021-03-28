@@ -1,4 +1,4 @@
-package tree.traverse;
+package tree.traver;
 
 import util.TreeNode;
 import util.TreeUtil;
