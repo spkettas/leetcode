@@ -251,3 +251,6 @@ append()  [-1]
 ### 题解
 概率题：
 https://www.nowcoder.com/ta/nine-chapter?query=&asc=true&order=&tagQuery=&page=1
+
+树状数组：
+https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/gui-bing-pai-xu-suo-yin-shu-zu-python-dai-ma-java-/
