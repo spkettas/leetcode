@@ -11,6 +11,11 @@ package dp;
  * 一共有四种方法将 nums 分割为 2 个子数组。 其中最好的方式是将其分为 [7,2,5] 和 [10,8] 。
  * 因为此时这两个子数组各自的和的最大值为18，在所有情况中最小。
  *
+ * 1. dp
+ * f[i][j] = min(f[k][j-1], sub[k+1,i])
+ *
+ * 2. 二分查找
+ * https://leetcode-cn.com/problems/split-array-largest-sum/solution/bai-hua-er-fen-cha-zhao-by-xiao-yan-gou/
  */
 public class L410 {
     public int splitArray(int[] nums, int m) {
@@ -18,6 +23,7 @@ public class L410 {
     }
 
     public static void main(String[] args) {
+        L410 l = new L410();
 
     }
 }
