@@ -8,7 +8,8 @@ package array;
  * 输出: 5
  *
  * 1.暴力法
- * 2.归并排序，l指向数字比r-1大，则贡献逆序对+1
+ * 2.归并排序;
+ * 前提两个子序列有序，l指向数字比r-1大，则贡献逆序对+1
  */
 public class O51 {
     // 1.暴力法
@@ -63,9 +64,11 @@ public class O51 {
         }
 
         int i = lo;
-        int j = mid + 1;
+        int j = mid + 1;    // &&&
         int count = 0;
 
+        // [lo, hi]
+        // [i, mid], [j, hi]
         for (int k = lo; k <= hi; k++) {
             if (i > mid) {
                 nums[k] = temp[j++];
@@ -75,7 +78,8 @@ public class O51 {
                 nums[k] = temp[i++];
             } else {
                 nums[k] = temp[j++];
-                count += (mid - i + 1);     // &&&
+
+                count += (mid - i + 1);   // 贡献逆序对
             }
         }
 

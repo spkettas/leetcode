@@ -32,13 +32,21 @@ public class Test {
 
         // lambda
         TreeSet<Integer> pq = new TreeSet<>((a, b) -> {
-            return b - a;
+            return a - b;
         });
 
         pq.add(7);
         pq.add(5);
+        pq.add(12);
         pq.add(9);
-        System.out.println("last: " + pq.last());
+        // 默认已排序：5 7 9
+        System.out.println("last: " + pq.last()); // 9
+
+        // 5 7 9
+        for (Integer v : pq) {
+            System.out.print(v + "\t");
+        }
+        System.out.println();
 
         int a = 0xffffff1b;  // -229
         System.out.println(a);
@@ -73,8 +81,8 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        basic();
-        testList();
+        //basic();
+        //testList();
         testTree();
     }
 }

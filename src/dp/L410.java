@@ -20,6 +20,7 @@ package dp;
 public class L410 {
     public int splitArray(int[] nums, int m) {
 
+        return 0;
     }
 
     public static void main(String[] args) {
