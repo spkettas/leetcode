@@ -51,10 +51,13 @@ public class MySort {
         }
 
         int mid = lo + (hi - lo) / 2;
+
+        // [lo,mid] [mid+1,hi]
         mergeSort(nums, lo, mid);   // 闭合
         mergeSort(nums, mid + 1, hi);
 
-        merge(nums, lo, mid, hi);   // &&& +mid
+        // &&& +mid
+        merge(nums, lo, mid, hi);
     }
 
     public static void merge(int[] nums, int lo, int mid, int hi) {
@@ -94,6 +97,7 @@ public class MySort {
             return;
         }
 
+        // [lo,mid-1] [mid+1,hi]
         int mid = partition(nums, lo, hi);
         quickSort(nums, lo, mid - 1);    // 开区间
         quickSort(nums, mid + 1, hi);
@@ -136,7 +140,7 @@ public class MySort {
             // 左半部 <=
             while (++i <= hi && a[i] < base);
 
-            // 右半部
+            // 右半部 >=
             while (--j >= lo && a[j] > base);
 
             // last
