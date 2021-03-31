@@ -22,7 +22,7 @@ import java.util.List;
  *    [5,8,4,5]
  * ]
  *
- * 1.回溯法框架，直到叶子节点
+ * 1.回溯法框架，直到<叶子节点>
  */
 public class O34 {
     private List<List<Integer>> res = null;

@@ -58,14 +58,14 @@ public class MySort {
     }
 
     public static void merge(int[] nums, int lo, int mid, int hi) {
-        // merge a[lo,mid] + a[mid+1, hi]
-        int i = lo;
-        int j = mid + 1;    // &&&
-
         // copy
         for (int k=lo; k<=hi; ++k) {
             aux[k] = nums[k];
         }
+
+        // merge a[lo,mid] + a[mid+1, hi]
+        int i = lo;
+        int j = mid + 1;    // &&&
 
         // 按区间拷贝，aux指针自移动
         for (int k=lo; k<=hi; ++k) {  // &&& <=
