@@ -2,19 +2,24 @@ package dp;
 
 
 /**
- * 1.最长公共子序列
+ * 1.最长公共子序列(LCS)
  * 输入：text1 = "abcde", text2 = "ace"
  * 输出：3
  * 解释：最长公共子序列是 "ace"，它的长度为 3
  *
- * 2.最长连续公共序列值
- *
  * 1. dp
  * dp[i][j] = dp[i-1][j-1] + 1
  *          = max(dp[i][j-1], dp[i-1][j])
- *
+ * 四格:
  * [i-1,j-1] [i-1,j]
  * [i,j-1]  <i,j>
+ *
+ * 2.最长连续公共子串
+ * A="helloworld"
+ * B="loop"
+ * 输出：loo
+ *
+ * 1.记录最大长度和end
  */
 public class L1143 {
     // 1.最长公共序列长度
@@ -66,8 +71,8 @@ public class L1143 {
                 if (s1.charAt(i-1) == s2.charAt(j-1)) {
                     dp[i][j] = dp[i-1][j-1] + 1;
 
-                    if (dp[i][j] >= maxLen) {
-                        maxLen = dp[i][j];
+                    if (maxLen <= dp[i][j]) {
+                        maxLen = dp[i][j];  // 长度
                         end = i - 1;
                     }
                 } else {

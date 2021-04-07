@@ -12,7 +12,7 @@
 
 1. dp 最小次数
 线性搜索，状态：碎/没碎 选择：楼层
-dp[i][j] = min(res, max(dp[i-1][k-1], dp[i][n-i]) + 1)
+dp[i][j] = min(res, max(dp[i-1][j-1], dp[i][n-i]) + 1)
 
 """
 
