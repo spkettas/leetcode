@@ -66,6 +66,7 @@ int fib3(int n) {
 
    int prev = 1, cur = 1;
 
+   // &&& 3
    for (int i=3; i<=n; i++) {
         int sum = prev + cur;
         prev = cur;

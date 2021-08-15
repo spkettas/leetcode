@@ -23,7 +23,7 @@ public class L69 {
 
             if (val <= x) {
                 left = mid + 1;
-                res = mid;
+                res = mid;  // 记录
             } else if (val > x) {
                 right = mid - 1;
             }

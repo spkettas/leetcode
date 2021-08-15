@@ -18,7 +18,7 @@ using namespace std;
 #define INT_MIN 0x8000000
 
 int _atoi(const char *str, bool nag) {
-    int64_t num = 0;
+    int64_t num = 0;    // int64_t
     int flag = nag ? -1 : 1;
     char *p = (char*) str;
 
@@ -45,6 +45,7 @@ int _atoi(const char *str, bool nag) {
 }
 
 int atoi(const char *str) {
+    // trim()
     while (*str != '\0' && *str == ' ') str++;
 
     int64_t num = 0;
