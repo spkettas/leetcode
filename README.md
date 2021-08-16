@@ -4,7 +4,7 @@
 #### 操作系统(os)
 - default
   endian  大小端
-  s2int   数字转化为字符串; 8.字符串转换整数
+  s2int   数字转化为字符串; L8.字符串转换整数
   pool    线程池
   epoll   异步框架
 
@@ -24,6 +24,7 @@
   706     哈希映射
   sample  蓄水池抽样算法
 - 运算(calc)
+  8       二进制运算；1的个数
   scale   进制转换
   50      x的n次方
   Hex     16进制串转换
@@ -230,6 +231,10 @@
 
 ---
 ### 语法 
+- C
+stack::push()  pop()
+list::push_back()  pop_front()
+
 - java
 Collections.sort(list)
   
