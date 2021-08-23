@@ -2,7 +2,7 @@ package basic.bin;
 
 /**
  * 二分查找
- *
+ * <p>
  * 1. 标准型
  * 2. 左侧边界查找
  * 3. 右侧边界查找
@@ -31,6 +31,7 @@ public class BinQuery {
             }
         }
 
+        System.out.println(left + "\t" + right);
         return -1;
     }
 
@@ -83,17 +84,17 @@ public class BinQuery {
     public static void main(String[] args) {
         // normal
         int[] a1 = {2, 8, 10, 18, 25, 49};
-        int idx = BinQuery.binQuery(a1, 10);
-        System.out.println("normal idx: " + idx);
+        int idx = BinQuery.binQuery(a1, 9);
+        System.out.println(idx); // 2
 
         // left 不存在时不会返回-1
         int[] a2 = {2, 8, 10, 10, 10, 49};
-        idx = BinQuery.binLeftQuery(a2, 10);
-        System.out.println("left idx: " + idx);
+        idx = BinQuery.binLeftQuery(a2, 9);
+        System.out.println(idx);  // 2
 
         // right 不存在时不会返回-1
         int[] a3 = {2, 8, 10, 10, 10, 49};
         idx = BinQuery.binRightQuery(a3, 10);
-        System.out.println("right idx: " + idx);
+        System.out.println(idx); // 4
     }
 }
