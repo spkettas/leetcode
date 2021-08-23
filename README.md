@@ -48,6 +48,7 @@
   blog    寻找发帖王; [摩尔投票法]
   nSum    两数/三数/四数之和; 1、15、18;  `二分查找`
   o3      数组中重复的数字; `set`
+  66      加一；`解法较巧妙`
   88      合并两个有序数组; `逆向赋值`
   48      旋转图像;
   240     搜索二维矩阵II; `左下角`
@@ -167,6 +168,7 @@
   
 #### 字符串(str)
 - default
+  28      字符串查找; `经典KMP算法`
   Add     大数加法; `反转后相加`
   43      字符串相乘; `逆序`
   5       最长回文子串; `奇偶数`
@@ -266,6 +268,7 @@ stack:
 append()  [-1]  
 
 ### 题解
+经典算法：
 [概率题](https://www.nowcoder.com/ta/nine-chapter?query=&asc=true&order=&tagQuery=&page=1)
-
+[KMP算法](https://leetcode-cn.com/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode-solution-ds6y/)
 [树状数组](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/gui-bing-pai-xu-suo-yin-shu-zu-python-dai-ma-java-/)
