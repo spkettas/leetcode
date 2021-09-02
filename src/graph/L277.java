@@ -6,6 +6,7 @@ package graph;
  *
  * 1.链表
  * 2.无需额外空间
+ * https://mp.weixin.qq.com/s/hd06P3ASUAmA5apbAB1nIw
  */
 public class L277 {
     // i认识j
