@@ -27,7 +27,7 @@ int partition(vector<int>&a, int lo, int hi) {
 
     while (1) {
         // &&& ++i
-        while (++j <= hi && a[i] < base);
+        while (++i <= hi && a[i] < base);
 
         // &&& --j
         while (--j >= lo && a[j] > base);
