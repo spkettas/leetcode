@@ -12,13 +12,8 @@ src/str/l567
 src/str/l76
 src/os/s2int
 src/basic/alg/l70
-/src/link/*.exe
-src/trace/*.exe
-src/test/*.exe
-src/trace/l51
-src/trace/l51.dSYM
-src/test/test.dSYM
-src/test/test
 *.exe
+src/**/*.exe
+src/**/*.dSYM
 src/trace/o38
 src/str/nsum
