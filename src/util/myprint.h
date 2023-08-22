@@ -90,7 +90,8 @@ void showVS(vector<vector<string>> &v) {
 }
 
 /**
- * 二数之和 +start
+ * 二数之和
+ * nums = [2,7,11,15], target = 9
  *
  */
 vector<vector<int>> TwoSumTarget(vector<int>& nums, int start, int target) {

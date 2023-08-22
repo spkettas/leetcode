@@ -14,8 +14,9 @@
 
 using namespace std;
 
-#define INT_MAX 0x7FFFFFFF
-#define INT_MIN 0x8000000
+// 2,147,483,648
+#define INT_MAX 0x7FFFFFFF  // 最大正数
+#define INT_MIN 0x80000000  // 最小负数(补码=取反+1)
 
 int _atoi(const char *str, bool nag) {
     int64_t num = 0;    // int64_t
@@ -107,6 +108,7 @@ int main(int argc, char **argv) {
     int a = ::atoi("12345");
     printf("a=%d\n", a);
 
+    // 重点考察该函数
     char *b = ::itoa(12345);
     printf("b=%s\n", b);
     return 0;

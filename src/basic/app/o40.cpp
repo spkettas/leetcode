@@ -10,7 +10,7 @@
 using namespace std;
 
 
-multiset<int, greater<int>> maxHeap;    // 升序排列，小根堆
+multiset<int, greater<int>> maxHeap;    // 降序排列，大根堆
 
 /**
  * 最大堆; multiset.begin() 为最大值

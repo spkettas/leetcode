@@ -2,17 +2,21 @@
 
 
 ## 目录
-- [操作系统](#操作系统)
-- [基础](#基础)
-- [数组](#数组)
-- [链表](#链表)
-- [树](#树)
-- [图](#图)
-- [字符串](#字符串)
-- [回溯](#回溯)
-- [动态规则](#动态规则)
-- [技巧](#技巧)
-- [附录](#动态规则)
+- [Leetcode](#leetcode)
+- [目录](#目录)
+- [操作系统(os)](#操作系统os)
+- [基础(basic)](#基础basic)
+- [数组(array)](#数组array)
+- [链表(link)](#链表link)
+- [树(tree)](#树tree)
+- [回溯(trace)](#回溯trace)
+- [图(graph)](#图graph)
+- [字符串(str)](#字符串str)
+- [动态规划(dp)](#动态规划dp)
+- [技巧(mind)](#技巧mind)
+- [附录](#附录)
+  - [附录](#附录-1)
+  - [出题](#出题)
 
 
 ## 操作系统(os)
@@ -289,9 +293,15 @@ pop(0)
 append()  [-1]  
 ```
 
-- 附录  
+### 附录  
 经典算法  
 [概率题](https://www.nowcoder.com/ta/nine-chapter?query=&asc=true&order=&tagQuery=&page=1)  
 [KMP算法](https://leetcode-cn.com/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode-solution-ds6y/)  
 [树状数组](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/gui-bing-pai-xu-suo-yin-shu-zu-python-dai-ma-java-/)  
+
+### 出题
+- 整数转字符串：边界  
+- 数组交集、平方根、两数之和：双指针
+- TopN问题：快排
+- 链表反转：迭代    
 
