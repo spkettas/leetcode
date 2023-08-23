@@ -300,8 +300,8 @@ append()  [-1]
 [树状数组](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/gui-bing-pai-xu-suo-yin-shu-zu-python-dai-ma-java-/)  
 
 ### 出题
-- 整数转字符串：边界  
-- 数组交集、平方根、两数之和：双指针
+- 整数转字符串：边界 + 双指针反转
+- 数组交集、平方根、两数之和(有序)：双指针
 - TopN问题：快排
 - 链表反转：迭代    
 
