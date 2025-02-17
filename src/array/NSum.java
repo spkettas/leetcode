@@ -13,7 +13,8 @@ import java.util.*;
  * 输出：[0,1]
  * 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
  *
- * 1.排序后双指针, l<r
+ * 1. 暴力法 -> hash法
+ * 2. 排序后双指针, l<r
  */
 public class NSum {
     public ArrayList<ArrayList<Integer>> twoSum(int[] nums, int start, int target) {
@@ -21,6 +22,9 @@ public class NSum {
 
         if (nums.length == 0) return list;
 
+        // sort nums
+        Arrays.sort(nums);
+        
         int n = nums.length;
         int l = start, r = n - 1;
 
@@ -46,7 +50,7 @@ public class NSum {
         return list;
     }
 
-    public ArrayList<ArrayList<Integer>> threeSum(int[] nums) {
+    public ArrayList<ArrayList<Integer>> threeSum(int[] nums, int target) {
         ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 
         if (nums.length < 3) return list;
@@ -55,7 +59,7 @@ public class NSum {
         Arrays.sort(nums);
 
         for (int i = 0; i < n; i++) {
-            ArrayList<ArrayList<Integer>> ans = twoSum(nums, i+1, 0 - nums[i]);  // &&& i+1 添加start防重
+            ArrayList<ArrayList<Integer>> ans = twoSum(nums, i+1, target - nums[i]);  // &&& i+1 添加start防重
 
             for (int j = 0; j < ans.size(); j++) {
                 ArrayList<Integer> tp = ans.get(j);
@@ -74,9 +78,10 @@ public class NSum {
     public static void main(String[] args) {
         //int[] nums = {-2, 0, 1, 1, 2};
         int[] nums = {1,2,-2,-1};
+        int target = 1;
 
         NSum o = new NSum();
-        var res = o.threeSum(nums);
+        var res = o.threeSum(nums, target);
         System.out.println(res);
     }
 }
